@@ -23,6 +23,9 @@ public:
 private:
 	Single() {}
 	int val = 0;
+
+	Single& operator=(const Single& other) = delete;
+	Single(const Single& other) = delete;
 };
 
 int main()
