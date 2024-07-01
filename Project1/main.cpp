@@ -1,4 +1,45 @@
+#if (1) // logger test
 #include <iostream>
+#include <string>
+#include <fstream>
+using namespace std;
+
+class Logger {
+public:
+	static Logger& getInstance() {
+		static Logger instance;
+		return instance;
+	}
+
+	~Logger() {
+		file1.close();
+	}
+
+	void write(string str) {
+		file1 << "ERROR :: " << str << "\n";
+	}
+
+private:
+	ofstream file1;
+
+	Logger() {
+		file1.open("input.txt");
+	}
+};
+
+int main() {
+	Logger& logger = Logger::getInstance();
+	logger.write("abcd");
+
+	Logger& logger2 = Logger::getInstance();
+	logger2.write("efgh");
+}
+#endif
+
+
+
+#if (0) // singleton ±âº»
+include <iostream>
 using namespace std;
 
 class Singleton
@@ -37,3 +78,4 @@ int main()
 	temp1.showValue();
 	temp2.showValue();
 }
+#endif
