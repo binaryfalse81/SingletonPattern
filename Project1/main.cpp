@@ -1,12 +1,12 @@
 #include <iostream>
 using namespace std;
 
-class Single
+class Singleton
 {
 public:
-	static Single& getInstance()
+	static Singleton& getInstance()
 	{
-		static Single instance;
+		static Singleton instance;
 		return instance;
 	}
 
@@ -21,17 +21,17 @@ public:
 	}
 
 private:
-	Single() {}
+	Singleton() {}
 	int val = 0;
 
-	Single& operator=(const Single& other) = delete;
-	Single(const Single& other) = delete;
+	Singleton& operator=(const Singleton& other) = delete;
+	Singleton(const Singleton& other) = delete;
 };
 
 int main()
 {
-	Single& temp1 = Single::getInstance();
-	Single& temp2 = Single::getInstance();
+	Singleton& temp1 = Singleton::getInstance();
+	Singleton& temp2 = Singleton::getInstance();
 
 	temp1.setValue(7);
 	temp1.showValue();
