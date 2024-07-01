@@ -1,18 +1,22 @@
 #include <iostream>
 using namespace std;
 
-class Single {
+class Single
+{
 public:
-	static Single& getInstance() {
+	static Single& getInstance()
+	{
 		static Single instance;
 		return instance;
 	}
 
-	void setValue(int n) {
+	void setValue(int n)
+	{
 		val = n;
 	}
 
-	void showValue() {
+	void showValue()
+	{
 		cout << val << endl;
 	}
 
@@ -21,7 +25,8 @@ private:
 	int val = 0;
 };
 
-int main() {
+int main()
+{
 	Single& temp1 = Single::getInstance();
 	Single& temp2 = Single::getInstance();
 
